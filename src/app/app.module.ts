@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WorkoutPage } from '../pages/workout/workout';
+import { AddWorkoutPage } from '../pages/add-workout/add-workout';
+import { WrokoutServiceProvider } from '../providers/wrokout-service/wrokout-service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { WorkoutPage } from '../pages/workout/workout';
     ContactPage,
     HomePage,
     TabsPage,
-    WorkoutPage
+    WorkoutPage,
+    AddWorkoutPage
   ],
   imports: [
     BrowserModule,
@@ -33,12 +36,15 @@ import { WorkoutPage } from '../pages/workout/workout';
     ContactPage,
     HomePage,
     TabsPage,
-    WorkoutPage    
+    WorkoutPage,
+    AddWorkoutPage    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WrokoutServiceProvider,
+    {provide : 'url' , useValue :'http://localhost:3000/workouts'}
   ]
 })
 export class AppModule {}
