@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -14,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { WorkoutPage } from '../pages/workout/workout';
 import { AddWorkoutPage } from '../pages/add-workout/add-workout';
 import { WrokoutServiceProvider } from '../providers/wrokout-service/wrokout-service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,13 @@ import { WrokoutServiceProvider } from '../providers/wrokout-service/wrokout-ser
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    AboutPage,    
     ContactPage,
     HomePage,
     TabsPage,
@@ -44,7 +47,8 @@ import { WrokoutServiceProvider } from '../providers/wrokout-service/wrokout-ser
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WrokoutServiceProvider,
-    {provide : 'url' , useValue :'http://localhost:3000/workouts'}
+    {provide : 'url' , useValue :'http://localhost:3000/workouts'},
+    WrokoutServiceProvider
   ]
 })
 export class AppModule {}

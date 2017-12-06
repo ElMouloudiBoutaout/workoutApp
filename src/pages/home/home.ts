@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Workout } from '../../app/workout';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { WrokoutServiceProvider } from '../../providers/wrokout-service/wrokout-service';
 
 @Component({
   selector: 'page-home',
@@ -7,7 +9,10 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  workouts: Workout[];
+  errorMsg : string;
+
+  constructor(public navCtrl: NavController,private   WService: WrokoutServiceProvider) {
 
   }
 
